@@ -2,7 +2,7 @@
 
 # Posterior-Mean Rectified Flow:<br />Towards Minimum MSE Photo-Realistic Image Restoration
 
-[[Paper]()]
+[[Paper]()] [[Project Page](https://pmrf-ml.github.io/)]
 
 [Guy Ohayon](https://ohayonguy.github.io/), [Tomer Michaeli](https://tomer.net.technion.ac.il/), [Michael Elad](https://elad.cs.technion.ac.il/)<br />
 Technion—Israel Institute of Technology
@@ -191,8 +191,8 @@ python compute_metrics_controlled_experiments.py \
         ohayon2024pmrf,
         title={Posterior-Mean Rectified Flow: Towards Minimum MSE Photo-Realistic Image Restoration},
         author={Guy Ohayon and Tomer Michaeli and Michael Elad},
-        year={2024},
         journal={arXiv preprint}
+        year={2024},
     }
 
 ## License and acknowledgements
