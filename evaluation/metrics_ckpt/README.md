@@ -1,0 +1,1 @@
+Download the `resnet18_110.pth` and `alignment_WFLW_4HG.pth` checkpoints from the [Google Drive](https://drive.google.com/drive/folders/1k3RCSliF6PsujCMIdCD1hNM63EozlDIZ) of [VQFR](https://github.com/TencentARC/VQFR) and put them in this folder.
