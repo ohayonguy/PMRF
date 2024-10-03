@@ -14,9 +14,15 @@ from torchvision.utils import save_image
 
 from utils.create_arch import create_arch
 from utils.img_utils import create_grid
+from huggingface_hub import PyTorchModelHubMixin
 
 
-class MMSERectifiedFlow(LightningModule):
+
+class MMSERectifiedFlow(LightningModule,
+                        PyTorchModelHubMixin,
+                        pipeline_tag="image-to-image",
+                        license="mit",
+                        ):
     def __init__(self,
                  stage,
                  arch,

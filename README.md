@@ -53,6 +53,7 @@ pip install basicsr==1.4.2
 pip install git+https://github.com/toshas/torch-fidelity.git
 pip install lpips==0.1.4
 pip install piq==0.8.0
+pip install huggingface_hub==0.24.5
 ```
 
 1. Note that the package `natten` is required for the HDiT architecture used by PMRF.
@@ -73,11 +74,11 @@ to
 from torchvision.transforms.functional import rgb_to_grayscale
 ```
 
-
+ 
 # ⬇️ Download checkpoints
 
-
-Our model checkpoints (from both sections 5.1 and 5.2 in the paper) can be downloaded from our [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing). Please keep the same folder structure as provided in Google Drive:
+We provide our blind face image restoration model checkpoint in [Hugging Face](https://huggingface.co/ohayonguy/PMRF_blind_face_image_restoration) and in [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing).
+The checkpoints for section 5.2 in the paper (the controlled experiments) can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing). Please keep the same folder structure as provided in Google Drive:
 
 ```
 checkpoints/
@@ -101,18 +102,30 @@ To evaluate the landmark distance (LMD in the paper) and the identity metric (De
 3. Put these data sets wherever you want in your system.
 
 
-
 # 🧑 Blind face image restoration (section 5.1 in the paper)
 ## ⚡ Quick inference ⚡
+
+To quickly use our model, we provide a [Hugging Face checkpoint](https://huggingface.co/ohayonguy/PMRF_blind_face_image_restoration) which is automatically downloaded. Simply run
 ```
 python inference.py \
+--ckpt_path ohayonguy/PMRF_blind_face_image_restoration \
+--ckpt_path_is_huggingface \
 --lq_data_path /path/to/lq/images \
 --output_dir /path/to/results/dir \
 --batch_size 64 \
 --num_flow_steps 25
 ```
-You can also alter the `inference.sh` file and run it.
-You may alter the `--num_flow_steps` as you wish (this is the hyper-parameter `K` in our paper)
+Please alter `--num_flow_steps` as you wish (this is the hyper-parameter `K` in our paper)
+
+You may also provide a local model checkpoint (e.g., if you train your own PMRF model, or if you wish to use our [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing) checkpoint instead of the Hugging Face one). Simply run
+```
+python inference.py \
+--ckpt_path ./checkpoints/blind_face_restoration_pmrf.ckpt \
+--lq_data_path /path/to/lq/images \
+--output_dir /path/to/results/dir \
+--batch_size 64 \
+--num_flow_steps 25
+```
 
 ## 🔬 Evaluation
 

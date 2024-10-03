@@ -18,23 +18,26 @@ def main(args):
     output_path = os.path.join(args.output_dir, 'restored_images')
     os.makedirs(output_path, exist_ok=True)
 
-    ckpt = torch.load(args.ckpt_path, map_location="cpu")
-    mmse_model_arch = ckpt['hyper_parameters']['mmse_model_arch']
-    model = MMSERectifiedFlow.load_from_checkpoint(args.ckpt_path,
-                                                   # Need to provide mmse_model_arch to
-                                                   # make sure the model initializes it.
-                                                   mmse_model_arch=mmse_model_arch,
-                                                   mmse_model_ckpt_path=None,  # Will ignore the original path of the
-                                                   # MMSE model used for training,
-                                                   # and instead load it from the model checkpoint.
-                                                   map_location='cpu').cuda()
+    if args.ckpt_path_is_huggingface:
+        model = MMSERectifiedFlow.from_pretrained(args.ckpt_path).cuda()
+    else:
+        ckpt = torch.load(args.ckpt_path, map_location="cpu")
+        mmse_model_arch = ckpt['hyper_parameters']['mmse_model_arch']
+        model = MMSERectifiedFlow.load_from_checkpoint(args.ckpt_path,
+                                                       # Need to provide mmse_model_arch to
+                                                       # make sure the model initializes it.
+                                                       mmse_model_arch=mmse_model_arch,
+                                                       mmse_model_ckpt_path=None,  # Will ignore the original path of the
+                                                       # MMSE model used for training,
+                                                       # and instead load it from the model checkpoint.
+                                                       map_location='cpu').cuda()
+        if model.ema_wanted:
+            model.ema.load_state_dict(ckpt['ema'])
+            model.ema.copy_to()
     if model.mmse_model is not None:
         output_path_mmse = os.path.join(args.output_dir, 'restored_images_posterior_mean')
         os.makedirs(output_path_mmse, exist_ok=True)
 
-    if model.ema_wanted:
-        model.ema.load_state_dict(ckpt['ema'])
-        model.ema.copy_to()
 
     torch.compile(model, mode='max-autotune')
     print("Compiled model")
@@ -60,6 +63,8 @@ if __name__ == "__main__":
     parser.add_argument('--ckpt_path', type=str, required=False,
                         default='./checkpoints/blind_face_restoration_pmrf.ckpt',
                         help='Path to the model checkpoint.')
+    parser.add_argument('--ckpt_path_is_huggingface', action='store_true', required=False, default=False,
+                        help='Whether the ckpt path is a huggingface model or a path to a local file.')
     parser.add_argument('--lq_data_path', type=str, required=True,
                         help='Path to a folder that contains low quality images.')
     parser.add_argument('--output_dir', type=str, required=True,
