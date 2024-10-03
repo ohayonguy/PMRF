@@ -22,6 +22,8 @@ Technion—Israel Institute of Technology
 [![license](https://img.shields.io/badge/License-MIT-red.svg)](https://github.com/ohayonguy/PMRF/blob/main/LICENSE)
 [![torch](https://img.shields.io/badge/PyTorch-2.3.1-DE3412)](https://github.com/pytorch/pytorch)
 [![lightning](https://img.shields.io/badge/Lightning-2.3.3-8A2BE2)](https://github.com/Lightning-AI/pytorch-lightning)
+[![Hugging Face](https://img.shields.io/badge/Demo-%F0%9F%A4%97%20Hugging%20Face-blue)](https://huggingface.co/spaces/ohayonguy/PMRF)
+
 
 </div>
 
