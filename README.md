@@ -27,7 +27,7 @@ Technion—Israel Institute of Technology
 
 </div>
 
-# Some results from our paper
+# 📈 Some results from our paper
 ### CelebA-Test quantitative comparison
 
 Red, blue and green indicate the best, the second best and the third best scores, respectively.
@@ -77,8 +77,8 @@ from torchvision.transforms.functional import rgb_to_grayscale
 ```
 
  
-# ⬇️ Download checkpoints
-
+# ⬇️ Downloads
+## 🌐 Model checkpoints
 We provide our blind face image restoration model checkpoint in [Hugging Face](https://huggingface.co/ohayonguy/PMRF_blind_face_image_restoration) and in [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing).
 The checkpoints for section 5.2 in the paper (the controlled experiments) can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1dfjZATcQ451uhvFH42tKnfMNHRkL6N_A?usp=sharing). Please keep the same folder structure as provided in Google Drive:
 
@@ -98,14 +98,14 @@ checkpoints/
 ```
 To evaluate the landmark distance (LMD in the paper) and the identity metric (Deg in the paper), you will also need to download the `resnet18_110.pth` and `alignment_WFLW_4HG.pth` checkpoints from the [Google Drive](https://drive.google.com/drive/folders/1k3RCSliF6PsujCMIdCD1hNM63EozlDIZ) of [VQFR](https://github.com/TencentARC/VQFR). Place these checkpoints in the `evaluation/metrics_ckpt/` folder.
 
-# 🌐 Download test data sets for blind face image restoration
+## 🌐 Test data sets for blind face image restoration
 1. Download WebPhoto-Test, LFW-Test, and CelebA-Test (HQ and LQ) from https://xinntao.github.io/projects/gfpgan.
 2. Download WIDER-Test from https://shangchenzhou.com/projects/CodeFormer/.
 3. Put these data sets wherever you want in your system.
 
 
 # 🧑 Blind face image restoration (section 5.1 in the paper)
-## ⚡ Quick inference ⚡
+## ⚡ Quick inference
 
 To quickly use our model, we provide a [Hugging Face checkpoint](https://huggingface.co/ohayonguy/PMRF_blind_face_image_restoration) which is automatically downloaded. Simply run
 ```
@@ -201,7 +201,7 @@ python compute_metrics_controlled_experiments.py \
 * To run the `train_pmrf.sh` and `train_posterior_conditioned_on_mmse_model.sh` scripts, you first need to train the MMSE model via `train_mmse.sh`. Then, adjust the `--mmse_model_ckpt_path` argument according to the path of the MMSE model final checkpoint.
 
 
-## Citation
+## 📝 Citation
     @article{ohayon2024pmrf,
       author    = {Guy Ohayon and Tomer Michaeli and Michael Elad},
       title     = {Posterior-Mean Rectified Flow: Towards Minimum MSE Photo-Realistic Image Restoration},
@@ -210,10 +210,10 @@ python compute_metrics_controlled_experiments.py \
       url       = {https://arxiv.org/abs/2410.00418}
     }
 
-## License and acknowledgements
+## 📋 License and acknowledgements
 This project is released under the [MIT license](https://github.com/ohayonguy/PMRF/blob/main/LICENSE).
 
 We borrow codes from [BasicSR](https://github.com/XPixelGroup/BasicSR), [VQFR](https://github.com/TencentARC/VQFR), [DifFace](https://github.com/zsyOAOA/DifFace), [k-diffusion](https://github.com/crowsonkb/k-diffusion), and [SwinIR](https://github.com/JingyunLiang/SwinIR). We thank the authors of these repositories for their useful implementations.
 
-## Contact
+## 📧 Contact
 If you have any questions or inquiries, please feel free to [contact me](mailto:guyoep@gmail.com).
