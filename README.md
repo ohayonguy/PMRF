@@ -2,14 +2,14 @@
 
 # Posterior-Mean Rectified Flow:<br />Towards Minimum MSE Photo-Realistic Image Restoration
 
-[[Paper](https://arxiv.org/abs/2410.00418)] [[Project Page](https://pmrf-ml.github.io/)]
+[[Paper](https://arxiv.org/abs/2410.00418)] [[Project Page](https://pmrf-ml.github.io/)] [[Demo](https://huggingface.co/spaces/ohayonguy/PMRF)]
 
 [Guy Ohayon](https://ohayonguy.github.io/), [Tomer Michaeli](https://tomer.net.technion.ac.il/), [Michael Elad](https://elad.cs.technion.ac.il/)<br />
 Technion—Israel Institute of Technology
 
 </div>
 
-> Posterior-Mean Rectified Flow (PMRF) is a novel photo-realistic image restoration algorithm: It approximates the *optimal* estimator that minimizes the MSE under a constraint of perfect perceptual index, namely where the distribution of the reconstructed images is equal to that of the ground-truth ones.
+> PMRF is a novel photo-realistic image restoration algorithm. It (provably) approximates the **optimal** estimator that minimizes the Mean Squared Error (MSE) under a perfect perceptual quality constraint.
 
 <div align="center">
     <img src="assets/flow.png" width="2000">
@@ -41,7 +41,7 @@ Red, blue and green indicate the best, the second best and the third best scores
 <img src="assets/webphoto.png"/>
 
 # ⚙️ Installation
-We created a conda environment by running the following commands, exactly in the following order (these are also given in the `install.sh` file):
+We created a conda environment by running the following commands, exactly in the given order (these are given in the `install.sh` file):
 
 ```
 conda create -n pmrf python=3.10
@@ -64,7 +64,7 @@ Check out https://shi-labs.com/natten/ for the available versions.
 2. We installed `nvidia-cuda-nvcc-cu11` because otherwise `torch.compile` got hanging for some reason.
 `torch.compile` may work in your system without this package. In any case, if you wish to do so, you may simply skip
 this package and/or remove all the `torch.compile` lines from our code.
-3. Due to some issue in the `basicsr` package, you will need to modify one of the files in this package.
+3. Due to a compatibility issue in `basicsr`, you will need to modify one of the files in this package.
 Open `/path/to/env/pmrf/lib/python3.10/site-packages/basicsr/data/degradations.py`, where `/path/to/env` is the path
 where your conda installed the `pmrf` environment.
 Then, change the line
@@ -211,8 +211,9 @@ python compute_metrics_controlled_experiments.py \
     }
 
 ## License and acknowledgements
-This project is released under the MIT license.
-We borrow codes from [BasicSR](https://github.com/XPixelGroup/BasicSR), [VQFR](https://github.com/TencentARC/VQFR), [DifFace](https://github.com/zsyOAOA/DifFace), [k-diffusion](https://github.com/crowsonkb/k-diffusion), and [SwinIR](https://github.com/JingyunLiang/SwinIR). We thank the authors of such repositories for their useful implementations.
+This project is released under the [MIT license](https://github.com/ohayonguy/PMRF/blob/main/LICENSE).
+
+We borrow codes from [BasicSR](https://github.com/XPixelGroup/BasicSR), [VQFR](https://github.com/TencentARC/VQFR), [DifFace](https://github.com/zsyOAOA/DifFace), [k-diffusion](https://github.com/crowsonkb/k-diffusion), and [SwinIR](https://github.com/JingyunLiang/SwinIR). We thank the authors of these repositories for their useful implementations.
 
 ## Contact
 If you have any questions or inquiries, please feel free to [contact me](mailto:guyoep@gmail.com).
