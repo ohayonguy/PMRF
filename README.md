@@ -106,7 +106,6 @@ To evaluate the landmark distance (LMD in the paper) and the identity metric (De
 
 # 🧑 Blind face image restoration (section 5.1 in the paper)
 ## ⚡ Quick inference
-
 To quickly use our model, we provide a [Hugging Face checkpoint](https://huggingface.co/ohayonguy/PMRF_blind_face_image_restoration) which is automatically downloaded. Simply run
 ```
 python inference.py \
@@ -128,6 +127,7 @@ python inference.py \
 --batch_size 64 \
 --num_flow_steps 25
 ```
+Importantly, note that our blind face image restoration model is trained to handle square and aligned face images. To restore general content face images (e.g., where there is more than one face in the image), you may use our [Hugging Face demo](https://huggingface.co/spaces/ohayonguy/PMRF).
 
 ## 🔬 Evaluation
 
