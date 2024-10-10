@@ -41,6 +41,8 @@ Red, blue and green indicate the best, the second best and the third best scores
 <img src="assets/webphoto.png"/>
 
 # ⚙️ Installation
+**Note for Windows users:** *It appears that several Windows users have been unable to install the `natten` package, which is required to use the HDiT model architecture in PMRF. Alternatively, you may train PMRF using a different architecture, such as UNet, and avoid using the `natten` package. If you managed to install `natten` on Windows, please share your solution as this may benefit other users :) Thank you!*
+
 We created a conda environment by running the following commands, exactly in the given order (these are given in the `install.sh` file):
 
 ```
