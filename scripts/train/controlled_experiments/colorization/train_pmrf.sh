@@ -20,7 +20,7 @@ python train.py \
 --t_schedule "stratified_uniform" \
 --weight_decay 1e-2 \
 --lr 5e-4 \
---wandb_project_name "Posterior-Mean Rectified Flow" \
+--wandb_project_name "PMRF" \
 --wandb_group "PMRF" \
 --mmse_model_arch "swinir_M" \
 --mmse_model_ckpt_path "/path/to/checkpoint/last.ckpt" \

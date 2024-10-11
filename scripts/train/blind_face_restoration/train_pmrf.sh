@@ -21,7 +21,7 @@ python train.py \
 --weight_decay 1e-2 \
 --lr 5e-4 \
 --source_noise_std 0.1 \
---wandb_project_name "Posterior-Mean Rectified Flow" \
+--wandb_project_name "PMRF" \
 --wandb_group "Blind face restoration PMRF" \
 --mmse_model_arch "swinir_L" \
 --mmse_model_ckpt_path "./checkpoints/swinir_restoration512_L1.pth"  # Path to the DifFace checkpoint of SwinIR

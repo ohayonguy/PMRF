@@ -20,5 +20,5 @@ python train.py \
 --t_schedule "stratified_uniform" \
 --weight_decay 1e-2 \
 --lr 5e-4 \
---wandb_project_name "Posterior-Mean Rectified Flow" \
+--wandb_project_name "PMRF" \
 --wandb_group "Posterior mean predictor"

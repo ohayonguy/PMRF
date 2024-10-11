@@ -158,7 +158,7 @@ if __name__ == '__main__':
                         help='Optimizer learning rate.')
     parser.add_argument('--betas', type=tuple, required=False, default=(0.9, 0.95),
                         help='Betas for the AdamW optimizer.')
-    parser.add_argument('--wandb_project_name', type=str, required=True, default='Rectified Restoration Flow',
+    parser.add_argument('--wandb_project_name', type=str, required=True, default='PMRF',
                         help='Project name for weights and biases logger.')
     parser.add_argument('--wandb_group', type=str, required=False, default=None,
                         help='Group of wandb experiment.')
