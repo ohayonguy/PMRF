@@ -1,6 +1,6 @@
 <div align="center">
 
-# Posterior-Mean Rectified Flow:<br />Towards Minimum MSE Photo-Realistic Image Restoration
+# Posterior-Mean Rectified Flow:<br />Towards Minimum MSE Photo-Realistic Image Restoration<br />(ICLR 2025)
 
 [[Paper](https://arxiv.org/abs/2410.00418)] [[Project Page](https://pmrf-ml.github.io/)] [[Demo](https://huggingface.co/spaces/ohayonguy/PMRF)]
 
