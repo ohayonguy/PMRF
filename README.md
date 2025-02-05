@@ -204,12 +204,13 @@ python compute_metrics_controlled_experiments.py \
 
 
 ## 📝 Citation
-    @article{ohayon2024pmrf,
-      author    = {Guy Ohayon and Tomer Michaeli and Michael Elad},
-      title     = {Posterior-Mean Rectified Flow: Towards Minimum MSE Photo-Realistic Image Restoration},
-      journal   = {arXiv preprint arXiv:2410.00418},
-      year      = {2024},
-      url       = {https://arxiv.org/abs/2410.00418}
+    @inproceedings{
+        ohayon2025posteriormean,
+        title={Posterior-Mean Rectified Flow: Towards Minimum {MSE} Photo-Realistic Image Restoration},
+        author={Guy Ohayon and Tomer Michaeli and Michael Elad},
+        booktitle={The Thirteenth International Conference on Learning Representations},
+        year={2025},
+        url={https://openreview.net/forum?id=hPOt3yUXii}
     }
 
 ## 📋 License and acknowledgements
